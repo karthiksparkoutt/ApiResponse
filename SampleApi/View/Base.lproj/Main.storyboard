@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zjF-l5-5aK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ZH-BO-Agf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,13 +10,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SampleApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dv8-31-63Q">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="34" id="w5P-Ha-Mf7" customClass="DataCell" customModule="SampleApi" customModuleProvider="target">
@@ -57,31 +57,74 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="WpM-VY-Dxd"/>
-                    <connections>
-                        <outlet property="dataList" destination="Dv8-31-63Q" id="tS1-Y8-BdF"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="98.4375"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="whj-Nm-Jx7">
+        <!--View Controller-->
+        <scene sceneID="rTF-HN-B1J">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zjF-l5-5aK" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="204-1u-gkG">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="ViewController" id="6ZH-BO-Agf" customClass="ViewController" customModule="SampleApi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z05-Gr-J5k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szt-2p-lIc">
+                                <rect key="frame" x="83" y="274" width="248" height="358"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oDv-AL-Yve">
+                                        <rect key="frame" x="10" y="20" width="228" height="215"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVv-XG-lm8">
+                                        <rect key="frame" x="87.5" y="245" width="73" height="30"/>
+                                        <color key="backgroundColor" red="0.26321834329999999" green="0.48432183270000001" blue="0.74140840770000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="   Upload   ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="uploadButton:" destination="6ZH-BO-Agf" eventType="touchUpInside" id="ESg-Ln-mkJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hp6-DK-C42">
+                                        <rect key="frame" x="0.0" y="0.0" width="248" height="245"/>
+                                        <connections>
+                                            <action selector="cameraAction:" destination="6ZH-BO-Agf" eventType="touchUpInside" id="1hY-fu-HIz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="hp6-DK-C42" firstAttribute="top" secondItem="szt-2p-lIc" secondAttribute="top" id="46U-Xl-FOs"/>
+                                    <constraint firstAttribute="trailing" secondItem="oDv-AL-Yve" secondAttribute="trailing" constant="10" id="QST-m0-CYf"/>
+                                    <constraint firstItem="gVv-XG-lm8" firstAttribute="top" secondItem="oDv-AL-Yve" secondAttribute="bottom" constant="10" id="Vt6-M1-dt0"/>
+                                    <constraint firstAttribute="trailing" secondItem="hp6-DK-C42" secondAttribute="trailing" id="WZM-9s-0oa"/>
+                                    <constraint firstItem="gVv-XG-lm8" firstAttribute="top" secondItem="hp6-DK-C42" secondAttribute="bottom" id="dDG-RV-usB"/>
+                                    <constraint firstItem="gVv-XG-lm8" firstAttribute="centerX" secondItem="szt-2p-lIc" secondAttribute="centerX" id="l02-sQ-Vua"/>
+                                    <constraint firstItem="oDv-AL-Yve" firstAttribute="top" secondItem="szt-2p-lIc" secondAttribute="top" constant="20" id="prP-Yf-ciD"/>
+                                    <constraint firstItem="oDv-AL-Yve" firstAttribute="height" secondItem="szt-2p-lIc" secondAttribute="height" multiplier="0.6" id="sQe-NA-REH"/>
+                                    <constraint firstItem="hp6-DK-C42" firstAttribute="leading" secondItem="szt-2p-lIc" secondAttribute="leading" id="tA9-KE-8aJ"/>
+                                    <constraint firstItem="oDv-AL-Yve" firstAttribute="leading" secondItem="szt-2p-lIc" secondAttribute="leading" constant="10" id="wnX-0B-9zE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="szt-2p-lIc" firstAttribute="height" secondItem="z05-Gr-J5k" secondAttribute="height" multiplier="0.4" id="SeK-y1-fF7"/>
+                            <constraint firstItem="szt-2p-lIc" firstAttribute="centerY" secondItem="dcO-kr-ITG" secondAttribute="centerY" id="XEs-1L-59b"/>
+                            <constraint firstItem="szt-2p-lIc" firstAttribute="width" secondItem="z05-Gr-J5k" secondAttribute="width" multiplier="0.6" id="sGP-rW-Z86"/>
+                            <constraint firstItem="szt-2p-lIc" firstAttribute="centerX" secondItem="dcO-kr-ITG" secondAttribute="centerX" id="xkn-Ad-ywZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dcO-kr-ITG"/>
+                    </view>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="koH-Tm-kY0"/>
+                        <outlet property="uploadButton" destination="gVv-XG-lm8" id="UCb-ec-ac7"/>
+                        <outlet property="uploadImage" destination="oDv-AL-Yve" id="KSk-sO-FsV"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kof-Yl-jke" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VX6-ju-hsQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="98.4375"/>
+            <point key="canvasLocation" x="1820" y="92"/>
         </scene>
     </scenes>
 </document>
