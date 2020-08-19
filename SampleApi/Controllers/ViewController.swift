@@ -18,15 +18,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var dataList: UITableView!
     
     var category: [DataModel] = []
+    var url: [UploadPhoto] = []
+    
     var chooseImage = UIImage()
     var picker = UIImagePickerController()
     
     fileprivate func configuration() {
-//        dataList.delegate = self
-//        dataList.dataSource = self
         picker.delegate = self
-        view.backgroundColor = UIColor(white: 1, alpha: 0.1)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configuration()
@@ -37,6 +37,12 @@ class ViewController: UIViewController {
             imageUpload(picture: chooseImage) { (sucess, value, error) in
                 if sucess == true {
                     print("upload sucess")
+                    // MARK: - NavigationController
+                    let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    let viewcontroller: ImageViewController = sb.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
+                    viewcontroller.url = value
+                    let navController = UINavigationController(rootViewController: viewcontroller)
+                    self.present(navController, animated: true, completion: nil)
                 }
                 else {
                     print(value)
@@ -206,7 +212,7 @@ class ViewController: UIViewController {
             }
         }
     }
-     func uploadWithImage(picture:UIImage,completionHandler: @escaping (Bool?, String?, Error?) -> ()){
+    func uploadWithImage(picture:UIImage,completionHandler: @escaping (Bool?, String?, Error?) -> ()){
         
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 30
@@ -234,14 +240,14 @@ class ViewController: UIViewController {
                     let respValue = ((response.result.value!) as! AnyObject)
                     if let success = respValue.value(forKey: "message")
                     {
-                        if("\(success)" == "added successfully")
-                        {
-                            
-                            completionHandler(true,"\(success)",nil)
+                        if("\(success)" == "File uploaded successfully") {
+                            if let body = respValue.value(forKey: "body") as? [String:Any] {
+                                let url = body["url"] as! String
+                                completionHandler(true,"\(url)",nil)
+                            }
                         }
                         else
                         {
-                            
                             completionHandler(false,"\(respValue.value(forKey: "message")!)",nil)
                         }
                     }
@@ -285,7 +291,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let chosenImage = info[.originalImage] as? UIImage else { return }
-        
+        uploadImage.image = chosenImage
         chooseImage = chosenImage
         
         dismiss(animated: true, completion: nil)

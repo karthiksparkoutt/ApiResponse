@@ -10,11 +10,12 @@ import UIKit
 import SwiftyJSON
 
 class UploadPhoto {
-    var image: String = ""
+    var url: String = ""
     var jsonObj: JSON!
     
     init(jObj: JSON) {
-        image = jObj["image"].stringValue
+        
+        url = jObj["url"].stringValue
         
         jsonObj = jObj
     }

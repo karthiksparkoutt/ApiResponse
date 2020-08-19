@@ -20,7 +20,6 @@ class DataModel {
         
         dataList = Category.init(jObj: jObj["data"])
         
-        
         jsonObj = jObj
         
     }
