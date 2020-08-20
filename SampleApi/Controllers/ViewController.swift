@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dataList: UITableView!
     
     var category: [DataModel] = []
-    var url: [UploadPhoto] = []
+    var imageModel = [ImageResponse]()
     
     var chooseImage = UIImage()
     var picker = UIImagePickerController()
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
                     // MARK: - NavigationController
                     let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let viewcontroller: ImageViewController = sb.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
-                    viewcontroller.url = value
+                    viewcontroller.modelImage = self.imageModel
                     let navController = UINavigationController(rootViewController: viewcontroller)
                     self.present(navController, animated: true, completion: nil)
                 }
@@ -193,15 +193,21 @@ class ViewController: UIViewController {
             }
         }
     }
-    func imageUpload(picture: UIImage, completionHandler: @escaping ((Bool?,String,Error?)->())) {
+    func imageUpload(picture: UIImage, completionHandler: @escaping ((JSON?,String,Error?)->())) {
         self.uploadWithImage(picture: picture){ (json, value, error)  in
             if(error == nil) {
-                let val:Bool = (json!)
-                if val {
-                    completionHandler( true, "\(value!)", nil)
+               // let val:Bool = (json!)
+                let jsonRes = json!
+                if !jsonRes.isEmpty {
+                    self.imageModel.append(ImageResponse.init(jObj: jsonRes))
+
+                    completionHandler( true, "\(value!)"
+                        , nil)
                 } else {
                     let message = "Unknown Error"
                     if json != nil {
+                        
+                        
                         completionHandler(false,value!,nil)
                     }
                     let loginError = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey : message])
@@ -212,7 +218,7 @@ class ViewController: UIViewController {
             }
         }
     }
-    func uploadWithImage(picture:UIImage,completionHandler: @escaping (Bool?, String?, Error?) -> ()){
+    func uploadWithImage(picture:UIImage,completionHandler: @escaping (JSON?, String?, Error?) -> ()){
         
         let manager = Alamofire.SessionManager.default
         manager.session.configuration.timeoutIntervalForRequest = 30
@@ -237,22 +243,21 @@ class ViewController: UIViewController {
                 })
                 upload.responseJSON { response in
                     debugPrint(response.result.value!)
+                    
+                    
+                    
                     let respValue = ((response.result.value!) as! AnyObject)
-                    if let success = respValue.value(forKey: "message")
-                    {
-                        if("\(success)" == "File uploaded successfully") {
-                            if let body = respValue.value(forKey: "body") as? [String:Any] {
-                                let url = body["url"] as! String
-                                completionHandler(true,"\(url)",nil)
-                            }
+                    if let success = respValue.value(forKey: "message") {
+                    if("\(success)" == "File uploaded successfully") {
+                        
+                        let json = JSON(response.result.value!)
+                        completionHandler( json,"\(json)",nil)
+
+                            
+                        } else {
+                        completionHandler(false,"\(respValue.value(forKey: "message")!)",nil)
                         }
-                        else
-                        {
-                            completionHandler(false,"\(respValue.value(forKey: "message")!)",nil)
-                        }
-                    }
-                    else
-                    {
+                    } else {
                         completionHandler(false,"\(respValue.value(forKey: "message")!)",nil)
                     }
                 }

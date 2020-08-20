@@ -148,17 +148,35 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jYK-FF-4s2">
                                 <rect key="frame" x="62" y="184" width="290" height="538"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-EU-Kd6">
+                                <rect key="frame" x="186" y="737" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9q-yf-0eb">
+                                <rect key="frame" x="186" y="773" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="jYK-FF-4s2" firstAttribute="width" secondItem="TdH-W6-ImC" secondAttribute="width" multiplier="0.7" id="6QX-zL-FDm"/>
+                            <constraint firstItem="V9q-yf-0eb" firstAttribute="top" secondItem="Iw4-EU-Kd6" secondAttribute="bottom" constant="15" id="8CO-Pr-jsf"/>
+                            <constraint firstItem="V9q-yf-0eb" firstAttribute="centerX" secondItem="Iw4-EU-Kd6" secondAttribute="centerX" id="GeM-yg-Odd"/>
                             <constraint firstItem="jYK-FF-4s2" firstAttribute="centerX" secondItem="lOg-Fk-FpR" secondAttribute="centerX" id="ORb-GF-PT7"/>
                             <constraint firstItem="jYK-FF-4s2" firstAttribute="centerY" secondItem="lOg-Fk-FpR" secondAttribute="centerY" id="YsO-Yj-WYT"/>
+                            <constraint firstItem="Iw4-EU-Kd6" firstAttribute="centerX" secondItem="jYK-FF-4s2" secondAttribute="centerX" id="bVx-Ky-Tjb"/>
+                            <constraint firstItem="Iw4-EU-Kd6" firstAttribute="top" secondItem="jYK-FF-4s2" secondAttribute="bottom" constant="15" id="dGx-ri-5W0"/>
                             <constraint firstItem="jYK-FF-4s2" firstAttribute="height" secondItem="TdH-W6-ImC" secondAttribute="height" multiplier="0.6" id="u4b-l4-D4q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lOg-Fk-FpR"/>
                     </view>
                     <connections>
+                        <outlet property="subTitleLabel" destination="V9q-yf-0eb" id="5tb-rj-bTb"/>
+                        <outlet property="titleLabel" destination="Iw4-EU-Kd6" id="oAL-Jb-shB"/>
                         <outlet property="viewImage" destination="jYK-FF-4s2" id="UVd-5U-d1Z"/>
                     </connections>
                 </viewController>

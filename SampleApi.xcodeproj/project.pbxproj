@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B09460924EA86C700B8F7A4 /* UploadPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09460824EA86C700B8F7A4 /* UploadPhoto.swift */; };
+		3B09460924EA86C700B8F7A4 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B09460824EA86C700B8F7A4 /* ImageResponse.swift */; };
 		3B0C198824E5776500C10A68 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C198724E5776500C10A68 /* AppDelegate.swift */; };
 		3B0C198A24E5776500C10A68 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C198924E5776500C10A68 /* SceneDelegate.swift */; };
 		3B0C198C24E5776500C10A68 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0C198B24E5776500C10A68 /* ViewController.swift */; };
@@ -46,7 +46,7 @@
 		0260885AB6AABA838FA79DA9 /* Pods_SampleApiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25ACE8D83AFCBF432F0DFAAD /* Pods-SampleApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApi.debug.xcconfig"; path = "Target Support Files/Pods-SampleApi/Pods-SampleApi.debug.xcconfig"; sourceTree = "<group>"; };
 		336A5BF46B367F0A5A8D17F1 /* Pods_SampleApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B09460824EA86C700B8F7A4 /* UploadPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhoto.swift; sourceTree = "<group>"; };
+		3B09460824EA86C700B8F7A4 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		3B0C198424E5776500C10A68 /* SampleApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B0C198724E5776500C10A68 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B0C198924E5776500C10A68 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 			children = (
 				3B0C19B724E5797C00C10A68 /* DataModel.swift */,
 				3B0C19BB24E579EA00C10A68 /* Category.swift */,
-				3B09460824EA86C700B8F7A4 /* UploadPhoto.swift */,
+				3B09460824EA86C700B8F7A4 /* ImageResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				3B0C19BA24E579B200C10A68 /* DataCell.swift in Sources */,
 				3B0C198C24E5776500C10A68 /* ViewController.swift in Sources */,
 				3B0C19B824E5797C00C10A68 /* DataModel.swift in Sources */,
-				3B09460924EA86C700B8F7A4 /* UploadPhoto.swift in Sources */,
+				3B09460924EA86C700B8F7A4 /* ImageResponse.swift in Sources */,
 				3B0C198824E5776500C10A68 /* AppDelegate.swift in Sources */,
 				3BA568E124EBC46800F7ADEE /* ImageViewController.swift in Sources */,
 				3B0C198A24E5776500C10A68 /* SceneDelegate.swift in Sources */,

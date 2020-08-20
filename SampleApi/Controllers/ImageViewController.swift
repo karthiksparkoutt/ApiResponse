@@ -11,19 +11,28 @@ import UIKit
 class ImageViewController: UIViewController {
     
     @IBOutlet weak var viewImage: UIImageView!
-    var url = ""
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
+    var modelImage = [ImageResponse]()
+    
     
     fileprivate func configuration() {
-        print(url)
         // Do any additional setup after loading the view.
         // Create URL
-        let fileUrl = URL(string: url)
+        let fileUrl = URL(string: modelImage[0].body.url)
         viewImage.load(url: fileUrl!)
+        self.titleLabel.text = modelImage[0].body.image_name
+        self.subTitleLabel.text = modelImage[0].body.media_type
+        
+        
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configuration()
+        print(modelImage)
     }
     
     
